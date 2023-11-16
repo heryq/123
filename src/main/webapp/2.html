@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<style>
+	@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css");
+	.todo-list li.act{
+		background-color:yellow;
+		text-decoration:line-through;
+	}
+	
+	.todo-list .bi{
+		position:absolute;
+		cursor:pointer
+	}
+	
+	.todo-list .bi:first-child{
+	right:30px;
+
+	}
+	.todo-list .bi:last-child{
+		right:10px;
+	}
+	.todo-list .bi{
+		list-style:none;
+		padding:0;
+	}
+	</style>
+</head>
+<body>
+  <div class="todo">
+    <h2>jQuery</h2>
+    <input type="text" id="input" placeholder="Press enter">
+    <ul class="todo-list">
+     </ul>
+  </div>
+  
+  <script>
+  $('#input').change(function(){
+	var p=$(this).val(); //내가 쓴 텍스트
+	$('.todo-list').append('<li>'+p+'<i class="bi bi-check-square"></i><i class="bi bi-trash"></i></li>')
+	$(this).val(''); //값 초기화(엔터후)
+  });
+  //휴지통을 클릭하면 ul안의 li목록 삭제
+  $('.todo-list').on('click','.bi-trash', function(){
+	  $(this).parent().fadeOut(200)
+	  
+	  
+  });
+  $('.todo-list').on('click','bi-check-square',function(){
+	$(this).parent().toggleClass('act');  
+  })
+  
+  </script>
+</body>
+</html>
+
+
+
+

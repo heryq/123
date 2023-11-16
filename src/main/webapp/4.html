@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	body{
+	display:flex;
+	justify-content:center;
+	align-item:center;
+	background-color:#eee;
+	}
+	.login-form{
+	background-color:#fff;
+	width:400px;
+	padding:30px;
+	border-radius:10px;
+	box-shadow:0 0 30px rgba(0,0,0,0.1);
+	}
+	.login-from .field{
+	position:relative;
+	margin:20px 0;
+	}
+	.login-form .label-text{
+	position:absolue;
+	text-transform:captitalize;
+	font-size:10px;
+	left:0;
+	top:10px;
+	transition:0.35s;
+	
+	}
+	.login-form .label-text.act{
+	 top:-10px;
+	 color:pink;
+	}
+</style>
+</head>
+<body>
+
+  <form>
+    <div class="login-form">
+      <div class="field">
+        <span class="label-text">email</span>
+        <input type="email">
+      </div>
+      <div class="field">
+        <span class="label-text">password</span>
+        <input type="password">
+      </div>
+      <div class="field">
+        <span class="label-text">password confirm</span>
+        <input type="password">
+      </div>
+      <button>Login</button>
+    </div>
+  </form>
+  
+  <script>
+  	var $p=$('.login-form input');
+  	//input 클릭시 라벨을 위로 올린다
+  	$p.focus(function(){
+  		$(this).parent().find('.label-text').addClass('act');
+  	});
+  	//input 벗어났을떄 입력된 내용이 공백이면 act제거
+  	$p.focusout(function(){
+  		if($(this).val()==''){
+  			$(this).parent().find('.label-text').removeClass('act');
+  		}
+  	})
+  </script>
+
+</body>
+</html>

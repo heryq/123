@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<style>
+	body{
+	background-color:#ccc;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	}
+	.fr{
+		width:500px
+	}
+	.fr h2{
+		text-align:center
+	}
+	.fr textarea{
+		width:100%;
+		height:100px;
+		border-radius:10px;
+		padding:10px;
+		font-size:10px;
+	}
+	.fr .error-msg{
+		color:red;
+		float:left;
+		display:none;
+	}
+	.cou{
+		float:right;
+	}
+</style>	
+</head>
+<body>
+<div class="fr">
+   <h2>고객 문의 사항</h2>
+   <textarea id="input-text" maxlength="100"
+   placeholder="30자 이내로 작성해주세요."></textarea>
+   <div class="msg">
+   	<p class="error-msg"> 입력 글자수가 초과되었습니다.</p>
+   	<p class="cou">
+   		<span class="counting-num">0</span>/100
+   		</p>
+   </div>
+  </div>
+  
+  <script>
+  $('#input-text').keyup(function(){
+	  var cnt=$(this).val().length;
+	  $('.counting-num').text(cnt);
+	  if(cnt>99){
+		  $('.error-msg').show();
+	  }
+	  else{
+		  $('.error-msg').hide();
+	  }
+  })
+  </script>
+  
+  
+  
+  
+  
+  
+  
+</body>
+</html>
